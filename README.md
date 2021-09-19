@@ -1,3 +1,9 @@
+It is a quiz website made using React-JS, in which users 
+have an option to choose a quiz. And then, it provides an 
+interface for the selected quiz.
+
+<h1>Hosted at :- https://dktomar9456.github.io/Quiz_App/</h1>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
