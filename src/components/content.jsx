@@ -46,21 +46,25 @@ function Content(props) {
   }, [index]);
 
   const handleNext = () => {
-    for (let i = 0; i < 4; i++) {
-      let radioButton = document.getElementById("id" + index + i);
-      if (radioButton.checked) {
-        responses[index] = i + 1;
-        break;
+    if (!submitted) {
+      for (let i = 0; i < 4; i++) {
+        let radioButton = document.getElementById("id" + index + i);
+        if (radioButton.checked) {
+          responses[index] = i + 1;
+          break;
+        }
       }
     }
     setIndex((previndex) => previndex + 1);
   };
 
   const handlePrev = () => {
-    for (let i = 0; i < 4; i++) {
-      let radioButton = document.getElementById("id" + index + i);
-      if (radioButton.checked) {
-        responses[index] = i + 1;
+    if (!submitted) {
+      for (let i = 0; i < 4; i++) {
+        let radioButton = document.getElementById("id" + index + i);
+        if (radioButton.checked) {
+          responses[index] = i + 1;
+        }
       }
     }
     setIndex((previndex) => previndex - 1);
