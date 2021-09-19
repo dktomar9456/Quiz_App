@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Problems from "./questionData";
 
-var n = Problems.length;
-
 var responses = [];
 var submitted = false;
 
-for (let i = 0; i < n; i++) {
+for (let i = 0; i < 20; i++) {
   responses.push(0);
 }
-
-function Content() {
+function resize(arr, newSize, defaultValue) {
+  while (newSize > arr.length) arr.push(defaultValue);
+  arr.length = newSize;
+}
+function Content(props) {
+  var n = Problems[props.type].length;
+  resize(responses, n, 0);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -26,14 +29,17 @@ function Content() {
     }
     if (submitted) {
       let status = document.getElementById("desc");
-      if (Problems[index].correct === responses[index]) {
-        status.innerHTML = "Correct answer!" + "   " + Problems[index].desc;
+      if (Problems[props.type][index].correct === responses[index]) {
+        status.innerHTML =
+          "Correct answer!" + "   " + Problems[props.type][index].desc;
         status.className = "mt-3 alert alert-success";
       } else if (responses[index] !== 0) {
-        status.innerHTML = "Incorrect answer!" + "   " + Problems[index].desc;
+        status.innerHTML =
+          "Incorrect answer!" + "   " + Problems[props.type][index].desc;
         status.className = "mt-3 alert alert-danger";
       } else {
-        status.innerHTML = "Not Attempted!" + "   " + Problems[index].desc;
+        status.innerHTML =
+          "Not Attempted!" + "   " + Problems[props.type][index].desc;
         status.className = "mt-3 alert alert-warning";
       }
     }
@@ -70,6 +76,7 @@ function Content() {
 
   const handleSubmit = () => {
     submitted = true;
+    document.getElementById("submitBtn").style.display = "none";
     document.getElementById("clearbtn").style.display = "none";
     for (let i = 0; i < 4; i++) {
       let radioButton = document.getElementById("id" + index + i);
@@ -80,20 +87,24 @@ function Content() {
     }
     let status = document.getElementById("desc");
     status.style.display = "block";
-    if (Problems[index].correct === responses[index]) {
-      status.innerHTML = "Correct Answer!" + "   " + Problems[index].desc;
+    if (Problems[props.type][index].correct === responses[index]) {
+      status.innerHTML =
+        "Correct Answer!" + "   " + Problems[props.type][index].desc;
       status.className = "mt-3 alert alert-success";
     } else if (responses[index] !== 0) {
-      status.innerHTML = "Incorrect Answer!" + "   " + Problems[index].desc;
+      status.innerHTML =
+        "Incorrect Answer!" + "   " + Problems[props.type][index].desc;
       status.className = "mt-3  alert alert-danger";
     } else {
-      status.innerHTML = "Not Attempted!" + "   " + Problems[index].desc;
+      status.innerHTML =
+        "Not Attempted!" + "   " + Problems[props.type][index].desc;
       status.className = "mt-3 alert alert-warning";
     }
   };
 
   return (
     <div className=" mx-auto text-light">
+      <h6 className="text-end text-light mx-2">{"User: " + props.name}</h6>
       <div className="text-center mt-5">
         {responses.map((obj, i) => {
           return (
@@ -128,11 +139,12 @@ function Content() {
       <div className="mt-2 p-5" id="quesform">
         <p id={"status" + index}></p>
         <h1 className="display-6 fw-bold" id={"qid" + index}>
-          {Problems[index].id + 1} . {Problems[index].question}
+          {Problems[props.type][index].id + 1} .{" "}
+          {Problems[props.type][index].question}
         </h1>
 
         <div className="fs-5 mt-3">
-          {Problems[index].choices.map((obj, i) => {
+          {Problems[props.type][index].choices.map((obj, i) => {
             return (
               <div className="form-check mt-2" key={i.toString()}>
                 <label className="form-check-label">
@@ -183,8 +195,9 @@ function Content() {
           <button
             className="btn btn-danger btn-lg mt-5 "
             onClick={handleSubmit}
+            id="submitBtn"
             style={{
-              display: index === n - 1 ? "inline-block" : "none",
+              display: index === n - 1 && !submitted ? "inline-block" : "none",
             }}
           >
             Submit And See Result

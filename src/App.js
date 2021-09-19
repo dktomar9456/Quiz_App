@@ -12,7 +12,9 @@ class App extends Component {
     this.setStart = this.setStart.bind(this);
   }
   setStart = () => {
-    this.setState({ content: <Content /> });
+    var type = document.getElementById("quizType").value;
+    var name = document.getElementById("userName").value;
+    this.setState({ content: <Content type={type} name={name} /> });
   };
   render() {
     return (
