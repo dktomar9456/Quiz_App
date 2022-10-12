@@ -5,7 +5,18 @@ interface for the selected quiz.
 <h1>Hosted at :- https://dktomar9456.github.io/Quiz_App/</h1>
 
 <h2> ScreenShots</h2>
- <img url="https://user-images.githubusercontent.com/68142928/195330951-5e1af0b8-1b51-455a-89a1-d47e672d61be.png"/>
+<h4> 1: Login Page</h4>
+<img width="80%" src="https://user-images.githubusercontent.com/68142928/195331889-b5820d95-4bc5-41d0-893c-0a0d7dc9cbc6.png"/>
+
+
+<h4> 2: Quiz Interface</h4>
+<img width="80%" src="https://user-images.githubusercontent.com/68142928/195332257-b4baead5-c816-42ca-a178-aff97ce2e0d1.png"/>
+
+
+<h4> 3:Results and Explainations after submission</h4>
+<img width="80%" src="https://user-images.githubusercontent.com/68142928/195333141-e91bf838-a167-4c16-915b-c901ae55c810.png"/>
+
+
 
  
 
