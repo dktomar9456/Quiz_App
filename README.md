@@ -4,6 +4,22 @@ interface for the selected quiz.
 
 <h1>Hosted at :- https://dktomar9456.github.io/Quiz_App/</h1>
 
+<h2> ScreenShots</h2>
+<h4> 1: Login Page</n>
+![image](https://user-images.githubusercontent.com/68142928/195330089-061995e0-69bc-4643-90a8-dedf3e6e4794.png)
+
+<h4> Quiz interface</h4>
+![image](https://user-images.githubusercontent.com/68142928/195330335-4947ae1b-151a-4ec8-b7b6-43d361a0bddf.png)
+
+<h4> Interactive buttons</h4>
+![image](https://user-images.githubusercontent.com/68142928/195330545-01749833-bdef-4a8d-ae5e-99ccfb784bab.png)
+
+<h4> Results and answers after submission</h4>
+![image](https://user-images.githubusercontent.com/68142928/195330653-eecc2cf3-8527-4638-b7eb-a030e1968d49.png)
+![image](https://user-images.githubusercontent.com/68142928/195330695-d453daa2-47b4-4f91-98bf-20e1bfc9cade.png)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
